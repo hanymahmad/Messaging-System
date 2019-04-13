@@ -14,7 +14,7 @@ $errors = array();
 
 // $db = mysqli_connect( "$myHost", "$myUserName", "$myPassword", "$myDataBaseName" );
 
-$dbconn = pg_connect("dbname=d10e2v90u9cqfo");
+$dbconn3 = pg_connect("host=ec2-79-125-2-142.eu-west-1.compute.amazonaws.com port=5432 dbname=d10e2v90u9cqfo user=vsexnvwtdhulbw password=abd873bd0d2e2541ac8c095cfbf0830eb8b9c5e544eb1b3aed797bca31fc5ce7");
 
 
 // REGISTER USER
