@@ -7,7 +7,7 @@ $email    = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('ec2-79-125-2-142.eu-west-1.compute.amazonaws.com', 'root', '', 'registration');
+$db = mysqli_connect('ec2-79-125-2-142.eu-west-1.compute.amazonaws.com', 'vsexnvwtdhulbw', 'abd873bd0d2e2541ac8c095cfbf0830eb8b9c5e544eb1b3aed797bca31fc5ce7', 'registration');
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
