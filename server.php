@@ -7,7 +7,7 @@ $email    = "";
 $errors = array(); 
 
 // connect to the database
-$myHost = "ec2-79-125-2-142.eu-west-1.compute.amazonaws.com";
+$myHost = "postgres://vsexnvwtdhulbw:abd873bd0d2e2541ac8c095cfbf0830eb8b9c5e544eb1b3aed797bca31fc5ce7@ec2-79-125-2-142.eu-west-1.compute.amazonaws.com:5432/d10e2v90u9cqfo";
 $myUserName = "vsexnvwtdhulbw";
 $myPassword = "abd873bd0d2e2541ac8c095cfbf0830eb8b9c5e544eb1b3aed797bca31fc5ce7";
 $myDataBaseName = "d10e2v90u9cqfo";
