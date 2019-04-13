@@ -14,16 +14,16 @@ $errors = array();
 
 // $db = mysqli_connect( "$myHost", "$myUserName", "$myPassword", "$myDataBaseName" );
 
-$dbconn3 = pg_connect("host=ec2-79-125-2-142.eu-west-1.compute.amazonaws.com port=5432 dbname=d10e2v90u9cqfo user=vsexnvwtdhulbw password=abd873bd0d2e2541ac8c095cfbf0830eb8b9c5e544eb1b3aed797bca31fc5ce7");
+$dbconn = pg_connect("host=ec2-79-125-2-142.eu-west-1.compute.amazonaws.com port=5432 dbname=d10e2v90u9cqfo user=vsexnvwtdhulbw password=abd873bd0d2e2541ac8c095cfbf0830eb8b9c5e544eb1b3aed797bca31fc5ce7");
 
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
-  $username = mysqli_real_escape_string($db, $_POST['username']);
-  $email = mysqli_real_escape_string($db, $_POST['email']);
-  $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
-  $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
+  $username = mysqli_real_escape_string($dbconn, $_POST['username']);
+  $email = mysqli_real_escape_string($dbconn, $_POST['email']);
+  $password_1 = mysqli_real_escape_string($dbconn, $_POST['password_1']);
+  $password_2 = mysqli_real_escape_string($dbconn, $_POST['password_2']);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -37,7 +37,7 @@ if (isset($_POST['reg_user'])) {
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
   $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
+  $result = mysqli_query($dbconn, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
   if ($user) { // if user exists
@@ -56,7 +56,7 @@ if (isset($_POST['reg_user'])) {
 
   	$query = "INSERT INTO users (username, email, password) 
   			  VALUES('$username', '$email', '$password')";
-  	mysqli_query($db, $query);
+  	mysqli_query($dbconn, $query);
   	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "You are now logged in";
   	header('location: index.php');
@@ -69,8 +69,8 @@ if (isset($_POST['reg_user'])) {
 
 // LOGIN USER
 if (isset($_POST['login_user'])) {
-  $username = mysqli_real_escape_string($db, $_POST['username']);
-  $password = mysqli_real_escape_string($db, $_POST['password']);
+  $username = mysqli_real_escape_string($dbconn, $_POST['username']);
+  $password = mysqli_real_escape_string($dbconn, $_POST['password']);
 
   if (empty($username)) {
     array_push($errors, "Username is required");
@@ -82,7 +82,7 @@ if (isset($_POST['login_user'])) {
   if (count($errors) == 0) {
     $password = md5($password);
     $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $results = mysqli_query($db, $query);
+    $results = mysqli_query($dbconn, $query);
     if (mysqli_num_rows($results) == 1) {
       $_SESSION['username'] = $username;
       $_SESSION['success'] = "You are now logged in";
