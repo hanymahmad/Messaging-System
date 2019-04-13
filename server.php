@@ -7,12 +7,14 @@ $email    = "";
 $errors = array(); 
 
 // connect to the database
-$myHost = "http://127.0.0.1:50388";
-$myUserName = "vsexnvwtdhulbw";
-$myPassword = "abd873bd0d2e2541ac8c095cfbf0830eb8b9c5e544eb1b3aed797bca31fc5ce7";
-$myDataBaseName = "d10e2v90u9cqfo";
+// $myHost = "http://127.0.0.1:50388";
+// $myUserName = "vsexnvwtdhulbw";
+// $myPassword = "abd873bd0d2e2541ac8c095cfbf0830eb8b9c5e544eb1b3aed797bca31fc5ce7";
+// $myDataBaseName = "d10e2v90u9cqfo";
 
-$db = mysqli_connect( "$myHost", "$myUserName", "$myPassword", "$myDataBaseName" );
+// $db = mysqli_connect( "$myHost", "$myUserName", "$myPassword", "$myDataBaseName" );
+
+$dbconn = pg_connect("dbname=d10e2v90u9cqfo");
 
 
 // REGISTER USER
