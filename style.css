@@ -4,7 +4,7 @@
 }
 body {
   font-size: 120%;
-  background: #F8F8FF;
+  background: #6A5ACD;
 }
 
 .header {
@@ -46,7 +46,7 @@ form, .content {
   padding: 10px;
   font-size: 15px;
   color: white;
-  background: #5F9EA0;
+  background: #C0C0C0;
   border: none;
   border-radius: 5px;
 }
